@@ -8,27 +8,27 @@ public class LocalContact implements Contact{
     public LocalContact(UUID id, String firstName, String lasttName, String email) {
         this.contactDetails = new ContactDetails(firstName, lasttName, email);
         this.id = id;
-        this.contactDetails = contactDetails;
     }
 
     @Override
     public String getId() {
-        return null;
+        String uuid = this.id.toString();
+        return uuid;
     }
 
     @Override
     public String getFirstName() {
-        return null;
+        return contactDetails.getFirstName();
     }
 
     @Override
     public String getLastName() {
-        return null;
+        return contactDetails.getLastName();
     }
 
     @Override
     public String getEmailAddress() {
-        return null;
+        return contactDetails.getEmail();
     }
 
 }
