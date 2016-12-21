@@ -1,12 +1,10 @@
-<<<<<<< HEAD:src/RemoteContact.java
 
-=======
 package model;
 
 /**
  * Created by Rand on 2016-12-20.
  */
->>>>>>> 09064ab731d6edf8db5dded332391a22c9b24c60:src/model/RemoteContact.java
+
 public class RemoteContact implements Contact{
 
     private String id;
