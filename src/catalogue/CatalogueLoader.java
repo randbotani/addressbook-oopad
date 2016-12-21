@@ -9,7 +9,7 @@ public class CatalogueLoader {
 
     public void run() throws IOException {
         RemoteCatalogueFactory remoteCatalogueFactory = new RemoteCatalogueFactory();
-
+        
         //remoteCatalogueFactory.RemoteCatalogueFactory(61616);
         remoteCatalogueFactory.creat("172.20.200.240");
     }
