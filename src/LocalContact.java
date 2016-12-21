@@ -2,11 +2,10 @@ import java.util.UUID;
 
 public class LocalContact implements Contact{
     private UUID id;
-
     private ContactDetails contactDetails;
 
-    public LocalContact(UUID id, String firstName, String lasttName, String email) {
-        this.contactDetails = new ContactDetails(firstName, lasttName, email);
+    public LocalContact(UUID id, String firstName, String lastName, String email) {
+        this.contactDetails = new ContactDetails(firstName, lastName, email);
         this.id = id;
     }
 
