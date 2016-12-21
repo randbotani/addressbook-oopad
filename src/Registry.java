@@ -9,10 +9,16 @@ public class Registry {
     public void addContact(String firstName, String lastName, String email){
         UniqueIdGenerator idGenerator = new UniqueIdGenerator();
         UUID id = idGenerator.getUuid();
+
         Contact contact = new LocalContact(id, firstName, lastName, email);
         contacts.add(contact);
 
     }
+
+    public ArrayList<Contact> getContacts(){
+        return this.contacts;
+    }
+
     public void deleteContact(String id){
         for(Contact contact: contacts){
             if(contact.getId().equals(id)){
@@ -31,7 +37,8 @@ public class Registry {
         return temp;
 
     }
-    public void load( ){
+    public void registryLoad(ArrayList<Contact> contacts){ // registryLoad(load()) någonstans...
+        this.contacts = contacts;
 
     }
 }
