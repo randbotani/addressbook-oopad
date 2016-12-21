@@ -1,3 +1,7 @@
+package registry;
+
+import registry.Registry;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;

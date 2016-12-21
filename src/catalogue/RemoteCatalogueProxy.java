@@ -1,3 +1,5 @@
+package catalogue;
+
 import java.util.ArrayList;
 
 

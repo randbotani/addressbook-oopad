@@ -1,3 +1,4 @@
+package model;
 
 public interface Contact {
     public String getId();
