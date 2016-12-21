@@ -1,8 +1,8 @@
 package catalogue;
 
-import java.util.ArrayList;
+import java.util.List;
 
 
 public interface RemoteCatalogueProxy {
-   public ArrayList <String> getContacts();
+   public List<String> getContacts();
 }

@@ -1,7 +1,6 @@
-package catalogue;
+package registry;
 
-import model.Contact;
-import model.RemoteContact;
+import model.*;
 
 import java.util.ArrayList;
 
