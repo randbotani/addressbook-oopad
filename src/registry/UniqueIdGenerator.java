@@ -1,3 +1,5 @@
+package registry;
+
 import java.util.Scanner;
 import java.util.UUID;
 

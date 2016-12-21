@@ -1,3 +1,8 @@
+package catalogue;
+
+import model.Contact;
+import model.RemoteContact;
+
 import java.util.ArrayList;
 
 public class RemoteRegistry {
