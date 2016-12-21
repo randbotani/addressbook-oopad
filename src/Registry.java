@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 import java.util.UUID;
 
 
@@ -15,7 +14,7 @@ public class Registry {
 
     }
     public ArrayList<Contact> getContacts(){
-        return contacts;
+        return this.contacts;
 
     }
     public void deleteContact(String id){
@@ -27,7 +26,7 @@ public class Registry {
     }
     public ArrayList<Contact> search(String term){
         ArrayList<Contact> temp = new ArrayList<>();
-        
+
         for(Contact contact: contacts){
             if(contact.getFirstName().startsWith(term) || contact.getLastName().startsWith(term)){
                 temp.add(contact);
