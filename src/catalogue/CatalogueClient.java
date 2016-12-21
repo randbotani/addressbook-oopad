@@ -9,7 +9,6 @@ public class CatalogueClient {
     private int port;
     private Socket socket;
 
-    RemoteRegistry remoteRegistry = new RemoteRegistry();
 
 
     InputStream inputStream = socket.getInputStream();
@@ -30,14 +29,14 @@ public class CatalogueClient {
     }
 
     public String waitForRespons() {
+        String centralCatalog = null;
 
         try {
 
-            for (String centralCatalog = reader.readLine(); centralCatalog != null; centralCatalog = reader.readLine()) {
-                String[] temp = centralCatalog.trim().split("\\s+");
-                remoteRegistry.add(temp[0], temp[1], temp[2], temp[3]);
-            }
+            for ( centralCatalog = reader.readLine(); centralCatalog != null; centralCatalog = reader.readLine()) {
+                centralCatalog += centralCatalog +"/";
 
+            }
             reader.close();
             writer.close();
 
@@ -45,7 +44,7 @@ public class CatalogueClient {
             System.out.println("we can't load centralCatalog because there is no connection with server");
         }
 
-        return "";
+        return centralCatalog;
     }
 
     public void sendRequest(String request){
