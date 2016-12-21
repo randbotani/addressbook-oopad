@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 public class RegistryPersister {
 
+    private ArrayList<Contact> temp = new ArrayList<>();
+
     public void save(){
         AutoSave autoSave = new AutoSave();
         autoSave.run();
@@ -14,7 +16,7 @@ public class RegistryPersister {
     public ArrayList<Contact> load() throws ClassNotFoundException {
 
         File file = new File("ContactList.contacts");
-        ArrayList<Contact> temp = new ArrayList<>();
+
 
 
         try(FileInputStream load = new FileInputStream(file);
