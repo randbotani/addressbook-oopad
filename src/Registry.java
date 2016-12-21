@@ -16,7 +16,6 @@ public class Registry {
     }
     public ArrayList<Contact> getContacts(){
         return contacts;
-
     }
     public void deleteContact(String id){
         for(Contact contact: contacts){
