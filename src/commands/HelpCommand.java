@@ -1,7 +1,18 @@
 package commands;
 
-/**
- * Created by Luiz Oliveira on 2016-12-21.
- */
-public class HelpCommand {
+public class HelpCommand implements Command{
+    @Override
+    public String getName() {
+        return null;
+    }
+
+    @Override
+    public String getDescription() {
+        return null;
+    }
+
+    @Override
+    public void execute() {
+
+    }
 }
