@@ -9,7 +9,7 @@ public class CommandLIneInterface implements InputHandler {
 
     @Override
     public void inputHandler(CommandLine commandLine) {
-        
+
 
     }
 }
