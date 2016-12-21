@@ -7,10 +7,17 @@ import java.io.IOException;
  */
 public class CatalogueLoader {
 
-    public void run() throws IOException {
-        RemoteCatalogueFactory remoteCatalogueFactory = new RemoteCatalogueFactory();
-        
-        //remoteCatalogueFactory.RemoteCatalogueFactory(61616);
-        remoteCatalogueFactory.creat("172.20.200.240");
+    public void run(){
+        Thread thread = new Thread(() -> {
+            RemoteCatalogueFactory remoteCatalogueFactory = new RemoteCatalogueFactory();
+
+            //remoteCatalogueFactory.RemoteCatalogueFactory(61616);
+            try {
+                remoteCatalogueFactory.creat("172.20.200.240");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        thread.start();
     }
 }
