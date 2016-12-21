@@ -14,8 +14,12 @@ public class Registry {
 
     }
     public ArrayList<Contact> getContacts(){
+<<<<<<< HEAD
         return this.contacts;
 
+=======
+        return contacts;
+>>>>>>> d18e6240315d2a308114fc1dccf1074350a77670
     }
     public void deleteContact(String id){
         for(Contact contact: contacts){
