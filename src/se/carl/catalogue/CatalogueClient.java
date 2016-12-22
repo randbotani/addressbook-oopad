@@ -1,7 +1,11 @@
 package se.carl.catalogue;
 
+import se.carl.tools.Console;
+
+
 import java.io.*;
 import java.net.Socket;
+
 
 class CatalogueClient {
 
@@ -10,6 +14,8 @@ class CatalogueClient {
     private Socket socket;
     private OutputStream outputStream;
     private PrintWriter writer;
+    //private Console consolePrinter;
+
 
 
     public CatalogueClient(String host, int port){
@@ -21,7 +27,9 @@ class CatalogueClient {
         try{
             socket = new Socket(host, port);
         }catch (IOException e){
-            e.printStackTrace();
+            //e.printStackTrace();
+            Console consolePrinter = new Console();
+            consolePrinter.print("Not connected to Central Catalogue!");
         }
     }
 

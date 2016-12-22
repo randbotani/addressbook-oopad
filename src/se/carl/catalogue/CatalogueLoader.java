@@ -3,6 +3,7 @@ package se.carl.catalogue;
 
 import java.util.List;
 import se.carl.registry.*;
+import se.carl.tools.Console;
 
 
 public class CatalogueLoader implements Runnable{
@@ -10,6 +11,7 @@ public class CatalogueLoader implements Runnable{
     private RemoteCatalogueProxy atomicRemoteCatalogueProxy;
     private RemoteCatalogueFactory remoteCatalogueFactory;
     private RemoteRegistry remoteRegistry;
+    private Console consolePrinter;
 
     public CatalogueLoader(RemoteRegistry remoteRegistry) {
         this.remoteRegistry = remoteRegistry;
@@ -17,9 +19,10 @@ public class CatalogueLoader implements Runnable{
     }
 
     public void run(){
-        atomicRemoteCatalogueProxy = remoteCatalogueFactory.create("localhost");
-
-        List<String> contactsAsStringLines = atomicRemoteCatalogueProxy.getContacts();
+        List<String> contactsAsStringLines;
+            atomicRemoteCatalogueProxy = remoteCatalogueFactory.create("localhost");
+        try{
+    contactsAsStringLines = atomicRemoteCatalogueProxy.getContacts();
 
         for (String contactLine: contactsAsStringLines
                 ) {
@@ -29,6 +32,11 @@ public class CatalogueLoader implements Runnable{
                 break;
             }
             remoteRegistry.add(contactArray[0], contactArray[1], contactArray[2], contactArray[3]);
+        }
+
+} catch (Exception e){
+/*            Console consolePrinter = new Console();
+            consolePrinter.print("NullPointerException!");*/
         }
     }
 
