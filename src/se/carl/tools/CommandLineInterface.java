@@ -4,9 +4,12 @@ import se.carl.commands.Command;
 import se.carl.exceptions.*;
 import se.carl.registry.*;
 
+import java.util.logging.Logger;
 
 
 public class CommandLineInterface implements InputHandler {
+    private static final Logger log = Logger.getLogger(CommandLineInterface.class.getName());
+
 
     private Console console;
     private CommandInterpreter commandInterpreter;
@@ -14,6 +17,7 @@ public class CommandLineInterface implements InputHandler {
     private RemoteRegistry remoteRegistry;
 
     public CommandLineInterface(Registry registry, RemoteRegistry remoteRegistry, Application application) {
+        log.info("Setting Command Line Interface...");
         this.registry = registry;
         this.remoteRegistry = remoteRegistry;
 
@@ -23,20 +27,26 @@ public class CommandLineInterface implements InputHandler {
     }
 
     void start(){
+        log.info("Starting Console...");
         console.run();
     }
 
 
     @Override
     public void handle(CommandLine commandLine) {
+        log.info("Handling a CommandLine into a Command...");
         try {
             Command command = commandInterpreter.interpret(commandLine);
             command.execute();
 
         } catch (InvalidCommandException e) {
-            System.out.println("Invalid Command");
+            String info = "Invalid Command!";
+            log.info(info);
+            System.out.println(info);
         } catch (InvalidCommandParameterException f){
-            System.out.println("Invalid Command Parameters");
+            String info = "Invalid Command Parameters";
+            log.info(info);
+            System.out.println(info);
         }
     }
 }

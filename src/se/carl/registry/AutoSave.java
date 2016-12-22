@@ -2,34 +2,42 @@ package se.carl.registry;
 
 
 
-import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.logging.Logger;
 
 
 public class AutoSave implements Runnable{
-    private Registry regToSave;
+    private static final Logger log = Logger.getLogger(AutoSave.class.getName());
+
+
+    private Registry saveContacts;
     private Timer timer = new Timer();
     private RegistryPersister registryPersister = new RegistryPersister();
     private Object lock;
 
     public AutoSave(Registry registry, Object lock){
-        regToSave = registry;
+        log.info("Setting Auto Save...");
+        saveContacts = registry;
         this.lock = lock;
     }
 
     private void save(){
-        registryPersister.save(regToSave);
+        log.info("Saving contacts...");
+        registryPersister.save(saveContacts);
     }
 
     @Override
     public synchronized void run() {
+        log.info("Timer Schedule is running...");
+
         timer.schedule(new TimerTask() {
 
             public void run() {
                 try {
                     save();
                 } catch (Exception e) {
+                    log.severe("Error: " + e);
                     e.printStackTrace();
                 }
             }
